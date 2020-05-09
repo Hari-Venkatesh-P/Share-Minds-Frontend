@@ -1,0 +1,9 @@
+.searchBanner{
+    display: flex; 
+    justify-content: center;
+    margin-top: 2%;
+}
+
+.profileBanner{
+    margin-top: 7%;
+}

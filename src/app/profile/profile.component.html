@@ -1,0 +1,32 @@
+<app-navbar></app-navbar>
+<div class="container">
+    <div class="profilebanner">
+      <div *ngIf="dataFlag">
+        <div class="card mb-3" style="max-width: 540px;">
+          <div class="card-header text-white bg-dark">
+            <h5>Hello, "{{user.username}}" !! </h5>
+          </div>
+          <div class="row no-gutters">
+            <div class="col-md-4">
+              <img  [src]= "'https://hari-shareminds-backend.herokuapp.com/user/profiledownload/'+user.profileimageid+'.png' " style="border-radius: 70%;padding: 6px;" class="card-img" alt="..." height="100%" width="8%">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-text"><b>{{user.firstname}}  {{user.lastname}}</b></h5>
+                <p class="card-text"><b>Email</b>  : {{user.email}}</p>
+                <p class="card-text"><b>Mobile</b>  : {{user.mobile}}</p>
+                <p class="card-text"><b>Gender</b>  : {{user.gender}}</p>
+                <p class="card-text"><b>Date of Birth</b>  : {{user.dob}}</p>
+                <form class="container" [formGroup]="updateForm" (ngSubmit)="updateProfile()" enctype="multipart/form-data">
+                  <div class="form-group" >
+                    <input type="file" name="profileimage" accept="image/x-png,image/gif,image/jpeg"  (change)="onFileSelect($event)" required />
+                  </div>
+                  <button type="submit" class="btn btn-dark btn-sm">EDIT PICTURE</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

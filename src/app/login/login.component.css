@@ -1,0 +1,38 @@
+
+.leftbanner {
+    height: 100%;
+    width: 40%;
+    position: absolute;
+    padding-top: 20px;
+    left: 0;
+    background-color: lightsteelblue;
+  }
+
+
+  .rightbanner {
+    height: 100%;
+    width: 60%;
+    position: absolute;
+    z-index: 1;
+    overflow-x: hidden;
+    padding-top: 20px;
+    right: 0;
+    background-color: lightsteelblue;
+  }
+
+  .aton{
+    
+  font-family: 'Roboto Slab', serif;
+  }
+
+  .wordings{
+    padding-top: 30%;
+    padding-left:10%;
+  }
+
+  .errorField{
+    border: solid 3px red;
+  }
+  .login{
+    background-color: lightsteelblue;
+  }

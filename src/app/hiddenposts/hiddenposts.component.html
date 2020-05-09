@@ -1,0 +1,41 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+    <div *ngFor="let post of posts" class="postsbanner">
+        <div class="card">
+            <div class="card-header">
+                <h5>{{post.posttitle}}</h5>
+            </div>
+            <div class="card-body">
+                <p class="card-title">Feeling {{ post.emoji}}..!!</p>
+                <h5 class="card-text">{{post.postcontent}}</h5>
+            </div>
+            <div class="card-footer">
+                <div class="row">
+                    <div class="col-md-3"> 
+                        <button  type="button" class="btn btn-dark" (click)="add(post._id)"><i class="fa fa-eye">&nbsp;&nbsp;UNHIDE</i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer" *ngIf="post.comments.length > 0 ">
+                <div *ngFor="let comment of post.comments">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <label><b>{{comment.username}}</b> </label>
+                            <label>&nbsp;commented &nbsp;<b>"</b>{{ comment.commentcontent}}<b>"</b></label>
+                        </div>
+                        <div class="col-md-6">
+                            <textarea class="form-control"  name="commentReplyContent" rows="1"  placeholder="Reply to comment" #commentContent></textarea>
+                        </div>
+                    </div>
+                    <div class="row" *ngIf="comment.commentreply">
+                        <div class="col-md-11">
+                            <label><b>Admin</b> </label>
+                            <label>&nbsp;replied as &nbsp;<b>"</b>{{ comment.commentreply}}<b>"</b></label>
+                        </div>
+                    </div><br/>
+                </div>
+            </div>
+        </div>
+    </div>  
+</div>

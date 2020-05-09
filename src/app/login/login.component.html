@@ -1,0 +1,90 @@
+<div class="login">
+<nav class="navbar navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">SHARE MINDS</a>
+    <form class="form-inline" (ngSubmit)="loginUser()">
+        <input class="form-control mr-sm-2" [(ngModel)]="loginEmail" name="loginEmail" type="text" placeholder="User name" aria-label="Search">
+        <input class="form-control mr-sm-2" [(ngModel)]="loginPassword" name="loginPassword" type="password" placeholder="Password" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
+      </form>
+</nav>
+
+<div class="leftbanner">
+    <div class="wordings">
+        <h2 class="aton">You are what you share.</h2>
+    </div>
+</div>
+  
+<div class="rightbanner">
+    <div class="container">
+        <div class="row">
+            <h2 >Create an Account</h2>
+        </div>
+        <br/>
+        <div class="row">
+            <h5 >Quick and Easy</h5>
+        </div>
+        <br/>
+    <form [formGroup]="signupForm" (ngSubmit)="createUser()">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <input type="text" class="form-control" formControlName="firstname" id="firstname" placeholder="First Name" required>
+            </div>
+            <div class="form-group col-md-6">
+                <input type="text" class="form-control" formControlName="lastname" id="lastname" placeholder="Last Name" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <div [ngClass]="{'errorField' : signupForm.get('username').errors && (signupForm.get('username').touched || signupForm.get('username').dirty)}"><input type="text" formControlName="username" name="username" class="form-control" id="username" placeholder="User Name" aria-describedby="username" required></div>
+                <span *ngIf="signupForm.get('username').errors && (signupForm.get('username').touched || signupForm.get('username').dirty)">
+                    <span style="color:red;font-size:15px">User name is madantory</span>
+                </span>
+            </div>
+            <div class="form-group col-md-6">
+                <div [ngClass]="{'errorField' : ((signupForm.get('email').errors && (signupForm.get('email').touched || signupForm.get('email').dirty)) && signupForm.get('email').touched)}"><input type="email" class="form-control" formControlName="email" id="email" placeholder="Email" required></div>
+                <span *ngIf="((signupForm.get('email').errors && (signupForm.get('email').touched || signupForm.get('email').dirty)) && signupForm.get('email').touched)">
+                    <span style="color:red;font-size:15px">Check the mail format</span>
+                </span>
+            </div>
+            
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <div [ngClass]="{'errorField' : ((signupForm.get('password').errors && (signupForm.get('password').touched || signupForm.get('password').dirty)) && signupForm.get('password').touched)}"><input type="password" class="form-control" formControlName="password" id="email" placeholder="Password" required></div>
+                <span *ngIf="((signupForm.get('password').errors && (signupForm.get('password').touched || signupForm.get('password').dirty)) && signupForm.get('password').touched)">
+                    <span style="color:red;font-size:15px">Password must be contain 6 to 12 characters of atleast one upper case letter,one lower case letter and one numeric digit. </span>
+                </span>
+            </div>
+            <div class="form-group col-md-6">
+                <input type="password" class="form-control" formControlName="confirmpassword" id="confirmpassword" placeholder="Confirm Password" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <div [ngClass]="{'errorField' : ((signupForm.get('mobile').errors && (signupForm.get('mobile').touched || signupForm.get('mobile').dirty)) && signupForm.get('mobile').touched)} "><input type="text" formControlName="mobile" name="mobile" class="form-control" id="mobile" aria-describedby="mobile" placeholder="Mobile" ></div>
+                <span *ngIf="((signupForm.get('mobile').errors && (signupForm.get('mobile').touched || signupForm.get('mobile').dirty)) && signupForm.get('mobile').touched)">
+                    <span style="color:red;font-size:15px">Mobile number is of 10 digits</span>
+                </span>
+            </div>
+            <div class="form-group col-md-6">
+                <div class="form-check">
+                    <input  class="form-check-input position-static" type="radio" name="gender" formControlName="gender" id="gridRadios1" value="male" aria-label="Male" checked> Male <br/>
+                    <input  class="form-check-input position-static" type="radio" name="gender" formControlName="gender"  id="gridRadios1"  aria-label="Female" value="female"> Female
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label>Birthday </label>
+            <input type="date" class="form-control" formControlName="dob" id="dob" required>
+          </div>
+          <div class="form-group col-md-6">
+            <label>Profile Picture </label><br/>
+            <input type="file" name="profileimage" accept="image/x-png,image/gif,image/jpeg" (change)="onFileSelect($event)" />
+          </div>
+        </div>
+        <button type="submit" class="btn btn-dark">Sign Up</button>
+      </form>
+    </div>
+</div>
+</div>
