@@ -9,11 +9,12 @@ import { UserService } from '../user.service';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-posts',
+  templateUrl: './posts.component.html',
+  styleUrls: ['./posts.component.css']
 })
-export class HomeComponent implements OnInit {
+
+export class PostsComponent implements OnInit {
 
   postForm: FormGroup;
   

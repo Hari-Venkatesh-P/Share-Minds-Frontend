@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {FormGroup,FormControl,FormBuilder ,Validators} from '@angular/forms';
+import {FormGroup,FormBuilder ,Validators} from '@angular/forms';
 import { PostService } from '../post.service';
 import { HttpClient } from '@angular/common/http';
-
 
 @Component({
   selector: 'app-createpost',
@@ -21,6 +20,7 @@ export class CreatepostComponent implements OnInit {
       postcontent : ['',[Validators.required]],
       emoji : ['',[Validators.required]],
       image: [''],
+      tags:[''],
     });
   }
   
@@ -32,9 +32,10 @@ export class CreatepostComponent implements OnInit {
       formData.append('posttitle', this.postForm.get('posttitle').value);
       formData.append('postcontent', this.postForm.get('postcontent').value);
       formData.append('emoji', this.postForm.get('emoji').value);
+      formData.append('tags', this.postForm.get('tags').value)
+      console.log(this.postForm.get('tags').value)
       console.log(formData)
       this.postService.addPosts(formData).subscribe((data:any)=>{
-        console.log(data)
         if(data.message)
         {
           alert(data.message);

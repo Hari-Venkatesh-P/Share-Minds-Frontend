@@ -40,6 +40,11 @@ export class PostService {
   {
     return this.httpClient.get("https://hari-shareminds-backend.herokuapp.com/post/getposts");
   }
+
+  public getPostsByHashTags(hashtag:string)
+  {
+    return this.httpClient.get("https://hari-shareminds-backend.herokuapp.com/post/getpostsbyhashtags/"+hashtag);
+  }
   
   public getHiddenPosts()
   {
@@ -65,6 +70,4 @@ export class PostService {
   {
     return this.httpClient.put("https://hari-shareminds-backend.herokuapp.com/post/updatepost/"+id+"/"+content," ")
   }
-
-  
 }

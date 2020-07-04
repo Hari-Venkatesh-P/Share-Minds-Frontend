@@ -9,7 +9,7 @@ export class InterceptorService  implements HttpInterceptor {
   constructor() { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler) {
-
+    console.log("Interceptors")
     if ((sessionStorage.getItem('user') || sessionStorage.getItem('admin')) && sessionStorage.getItem('jwttoken')) {
       req = req.clone({
         setHeaders: {

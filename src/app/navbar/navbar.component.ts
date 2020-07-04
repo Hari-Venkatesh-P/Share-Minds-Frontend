@@ -10,7 +10,8 @@ import { Router } from '@angular/router';
 export class NavbarComponent implements OnInit {
 
   constructor(private userService:UserService,private  router:Router) { }
-  banner:String;
+  banner:String; 
+  hashtag:String;
   ngOnInit(): void {
     if(this.userService.isAdminLoggedIn())
     {
@@ -19,6 +20,10 @@ export class NavbarComponent implements OnInit {
     else{
       this.banner="Feeds"
     }
+  }
+
+  getPostByHashtags(){
+    this.router.navigate(['/home'], { queryParams: { hashtag: this.hashtag } })
   }
 
   getUserLoggedIn()

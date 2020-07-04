@@ -13,7 +13,7 @@
                 <div class="card-body">
                     <p class="card-title">Feeling {{ post.emoji}}..!!</p>
                     <h5 class="card-text">{{post.postcontent}}</h5>
-                    <small>Posted at {{post.date | date:'medium' : home }}</small>
+                    <small>Posted at {{post.date | date:'medium' }}</small>
                     <br/>
                     <ng-container *ngFor="let tag of post.tags?.split(',')">
                         <span class="badge badge-pill badge-dark" >#{{tag  }}&nbsp;&nbsp;</span>
